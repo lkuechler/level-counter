@@ -1,0 +1,22 @@
+name: deploy
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set git configs
+              run: |
+                  git config --local user.email "$(git log --format='%ae' HEAD^!)"
+                  git config --local user.name "$(git log --format='%an' HEAD^!)"
+            - name: deploy to github pages
+              run: |
+                  mv src docs
+                  git add docs
+                  git commit -m "docs: move src into docs folder for github pages"
+                  git push --force origin main:gh-pages
