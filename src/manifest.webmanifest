@@ -1,0 +1,15 @@
+{
+	"background_color": "yellow",
+	"description": "Level counter",
+	"display": "fullscreen",
+	"icons": [
+		{
+			"src": "icon/duck_icon.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	],
+	"name": "Duck level counter",
+	"short_name": "Lvl-Counter",
+	"start_url": "/index.html"
+}
