@@ -6,6 +6,10 @@ body {
 	box-sizing: border-box;
 }
 
+a, input, button {
+	touch-action: manipulation;
+}
+
 p, h1, h2, h3 {
 	margin: 0;
 }
