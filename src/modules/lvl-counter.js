@@ -13,6 +13,8 @@ export class LvlCounter extends HTMLElement {
 		this.itemcount = this.getAttribute("itemcount");
 		this.totalcount = this.getAttribute("totalcount");
 		this.showremovebutton = this.getAttribute("showremovebutton");
+
+		this.attachShadow({ mode: "open" });
 	}
 
 	static get observedAttributes() {
@@ -29,7 +31,7 @@ export class LvlCounter extends HTMLElement {
 	}
 
 	render() {
-		this.innerHTML = `
+		this.shadowRoot.innerHTML = `
 			<style>
 				.wrapper {
 					display: flex;
@@ -143,30 +145,26 @@ export class LvlCounter extends HTMLElement {
 			</div>
 		`;
 
-		this.querySelector("#level-increase").addEventListener(
-			"click",
-			this.onLevelIncrease
-		);
-		this.querySelector("#level-decrease").addEventListener(
-			"click",
-			this.onLevelDecrease
-		);
-		this.querySelector("#level-count").addEventListener(
-			"change",
-			this.onLevelCountChange
-		);
-		this.querySelector("#item-increase").addEventListener(
-			"click",
-			this.onItemIncrease
-		);
-		this.querySelector("#item-decrease").addEventListener(
-			"click",
-			this.onItemDecrease
-		);
-		this.querySelector("#item-count").addEventListener(
-			"change",
-			this.onItemCountChange
-		);
-		this.querySelector("#remove")?.addEventListener("click", this.onRemove);
+		this.shadowRoot
+			.querySelector("#level-increase")
+			.addEventListener("click", this.onLevelIncrease);
+		this.shadowRoot
+			.querySelector("#level-decrease")
+			.addEventListener("click", this.onLevelDecrease);
+		this.shadowRoot
+			.querySelector("#level-count")
+			.addEventListener("change", this.onLevelCountChange);
+		this.shadowRoot
+			.querySelector("#item-increase")
+			.addEventListener("click", this.onItemIncrease);
+		this.shadowRoot
+			.querySelector("#item-decrease")
+			.addEventListener("click", this.onItemDecrease);
+		this.shadowRoot
+			.querySelector("#item-count")
+			.addEventListener("change", this.onItemCountChange);
+		this.shadowRoot
+			.querySelector("#remove")
+			?.addEventListener("click", this.onRemove);
 	}
 }
