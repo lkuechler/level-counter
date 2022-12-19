@@ -91,13 +91,9 @@ const generateLvlCounters = (counters, target) => {
 
 		lvlcounter.setAttribute("levelcount", counter.levelcount);
 		lvlcounter.setAttribute("itemcount", counter.itemcount);
-		lvlcounter.setAttribute("totalcount", counter.totalcount);
 
 		if (counters.length > 1) {
-			lvlcounter.setAttribute(
-				"showremovebutton",
-				counter.showremovebutton
-			);
+			lvlcounter.setAttribute("showremovebutton", true);
 		}
 
 		target.append(lvlcounter);
