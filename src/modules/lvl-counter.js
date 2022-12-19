@@ -42,35 +42,95 @@ export class LvlCounter extends HTMLElement {
 				.level-group {
 					display: flex;
 					flex-direction: column;
+					flex-grow: 1;
+					position: relative;
+				}
+				.level-group:first-child {
+					border-right: 1px solid black;
 				}
 				.level-input {
 					appearance: textfield;
-					width: 100%;
+					-webkit-appearance: textfield;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translateY(-50%) translateX(-50%);
+					width: 3rem;
+					height: 3rem;
 					margin: 0;
 					border: 0;
+					border-radius: 50%;
 					text-align: center;
+					background: rgba(0,0,0,0.5);
+					color: white;
+					z-index: 1;
+				}
+				.level-input::-webkit-inner-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
+				}
+				.increase, .decrease {
+					height: 25vh;
+					position: relative;
+					border: 0;
+				}
+				.increase::after, .decrease::after {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 0; 
+					height: 0; 
+					border-left: 3rem solid transparent;
+					border-right: 3rem solid transparent;
+					border-bottom: 3rem solid rgba(0,0,0,0.3);
+				}
+				.decrease::after {
+					transform: translate(-50%, -50%) rotateX(180deg);
+				}
+				.increase {
+					background: #BEEF9E;
+				}
+				.decrease {
+					background: #DB5A42;
+				}
+				h3 {
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+				.remove {
+					border: none;
+					height: 2.5rem;
+					margin-bottom: 10px;
 				}
 			</style>
 			<div class="wrapper">
 				<div class="level-groups">
 					<div class="level-group">
 						<h3>Level</h3>
-						<button id="level-increase">+</button>
+						<button id="level-increase" class="increase"></button>
 						<input class="level-input" id="level-count" type="number" value=${
 							this.levelcount
 						} />
-						<button id="level-decrease">-</button>
+						<button id="level-decrease" class="decrease"></button>
 					</div>
 					<div class="level-group">
 						<h3>Items</h3>
-						<button id="item-increase">+</button>
+						<button id="item-increase" class="increase"></button>
 						<input class="level-input" id="item-count" type="number" value=${
 							this.itemcount
 						} />
-						<button id="item-decrease">-</button>
+						<button id="item-decrease" class="decrease"></button>
 					</div>
 				</div>
-				${this.showremovebutton ? '<button id="remove">Remove</button>' : ""}
+				${
+					this.showremovebutton
+						? '<button id="remove" class="remove">Remove</button>'
+						: ""
+				}
 			</div>
 		`;
 

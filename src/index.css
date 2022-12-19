@@ -1,16 +1,18 @@
 body {
 	margin: 0;
+	background: whitesmoke;
 }
 
 * {
 	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 a, input, button {
 	touch-action: manipulation;
 }
 
-p, h1, h2, h3 {
+p, h1, h2, h3, button {
 	margin: 0;
 }
 
@@ -24,7 +26,6 @@ p, h1, h2, h3 {
 .heroWrapper, .monsterWrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 25px;
 }
 
 .monsters h2 {
@@ -33,7 +34,8 @@ p, h1, h2, h3 {
 
 .combatPowerSummary {
 	text-align: center;
-	background: white;
+	background: whitesmoke;
+	z-index: 2;
 }
 
 .combatPowerSummary, .monsters h2, .heroes h2 {
@@ -45,6 +47,16 @@ p, h1, h2, h3 {
 	line-height: 1.5rem;
 }
 
+.monsters, .heroes {
+	flex-grow: 1;
+}
+
 .monsters h2, .heroes h2 {
-	z-index: 1;
+	z-index: 3;
+}
+
+.addHero, .addMonster {
+	border: none;
+	height: 2.5rem;
+	width: 100%;
 }
