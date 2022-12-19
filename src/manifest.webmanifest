@@ -11,5 +11,6 @@
 	],
 	"name": "Duck level counter",
 	"short_name": "Lvl-Counter",
-	"start_url": "/index.html"
+	"start_url": "./",
+	"scope": "."
 }
