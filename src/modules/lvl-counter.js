@@ -31,23 +31,47 @@ export class LvlCounter extends HTMLElement {
 	render() {
 		this.innerHTML = `
 			<style>
-				button {
-					
+				.wrapper {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+				}
+				.level-groups {
+					display: flex;
+				}
+				.level-group {
+					display: flex;
+					flex-direction: column;
+				}
+				.level-input {
+					appearance: textfield;
+					width: 100%;
+					margin: 0;
+					border: 0;
+					text-align: center;
 				}
 			</style>
-			<div>
-				<h3>Level</h3>
-				<button id="level-decrease">-</button>
-				<input id="level-count" type="number" value=${this.levelcount} />
-				<button id="level-increase">+</button>
+			<div class="wrapper">
+				<div class="level-groups">
+					<div class="level-group">
+						<h3>Level</h3>
+						<button id="level-increase">+</button>
+						<input class="level-input" id="level-count" type="number" value=${
+							this.levelcount
+						} />
+						<button id="level-decrease">-</button>
+					</div>
+					<div class="level-group">
+						<h3>Items</h3>
+						<button id="item-increase">+</button>
+						<input class="level-input" id="item-count" type="number" value=${
+							this.itemcount
+						} />
+						<button id="item-decrease">-</button>
+					</div>
+				</div>
+				${this.showremovebutton ? '<button id="remove">Remove</button>' : ""}
 			</div>
-			<div>
-				<h3>Items</h3>
-				<button id="item-decrease">-</button>
-				<input id="item-count" type="number" value=${this.itemcount} />
-				<button id="item-increase">+</button>
-			</div>
-			${this.showremovebutton ? '<button id="remove">Remove</button>' : ""}
 		`;
 
 		this.querySelector("#level-increase").addEventListener(

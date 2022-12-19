@@ -1,4 +1,46 @@
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+p, h1, h2, h3 {
+	margin: 0;
+}
+
 .main {
 	display: flex;
 	justify-content: space-evenly;
+	gap: 10px;
+	margin-top: 2.5rem;
+}
+
+.heroWrapper, .monsterWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.monsters h2 {
+	text-align: right;
+}
+
+.combatPowerSummary {
+	text-align: center;
+	background: white;
+}
+
+.combatPowerSummary, .monsters h2, .heroes h2 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: .5rem 5px;
+	line-height: 1.5rem;
+}
+
+.monsters h2, .heroes h2 {
+	z-index: 1;
 }
