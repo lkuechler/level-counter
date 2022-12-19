@@ -74,22 +74,6 @@ export class LvlCounter extends HTMLElement {
 					position: relative;
 					border: 0;
 				}
-				.increase::after, .decrease::after {
-					content: '';
-					display: block;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					width: 0; 
-					height: 0; 
-					border-left: 3rem solid transparent;
-					border-right: 3rem solid transparent;
-					border-bottom: 3rem solid rgba(0,0,0,0.3);
-				}
-				.decrease::after {
-					transform: translate(-50%, -50%) rotateX(180deg);
-				}
 				.increase {
 					background: #BEEF9E;
 				}
@@ -106,24 +90,49 @@ export class LvlCounter extends HTMLElement {
 					height: 2.5rem;
 					margin-bottom: 10px;
 				}
+				.triangle {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					max-width: 55%;
+					max-height: 55%;
+					opacity: 0.3;
+				}
 			</style>
 			<div class="wrapper">
 				<div class="level-groups">
 					<div class="level-group">
 						<h3>Level</h3>
-						<button id="level-increase" class="increase"></button>
+						<button id="level-increase" class="increase">
+							<svg class="triangle" viewBox="0 0 300 150">
+								<polygon points="150 0, 300 150, 0 150"></polygon>
+							</svg>
+						</button>
 						<input class="level-input" id="level-count" type="number" value=${
 							this.levelcount
 						} />
-						<button id="level-decrease" class="decrease"></button>
+						<button id="level-decrease" class="decrease">
+							<svg class="triangle" viewBox="0 0 300 150">
+								<polygon points="150 150, 300 0, 0 0"></polygon>
+							</svg>
+						</button>
 					</div>
 					<div class="level-group">
 						<h3>Items</h3>
-						<button id="item-increase" class="increase"></button>
+						<button id="item-increase" class="increase">
+							<svg class="triangle" viewBox="0 0 300 150">
+								<polygon points="150 0, 300 150, 0 150"></polygon>
+							</svg>
+						</button>
 						<input class="level-input" id="item-count" type="number" value=${
 							this.itemcount
 						} />
-						<button id="item-decrease" class="decrease"></button>
+						<button id="item-decrease" class="decrease">
+							<svg class="triangle" viewBox="0 0 300 150">
+								<polygon points="150 150, 300 0, 0 0"></polygon>
+							</svg>
+						</button>
 					</div>
 				</div>
 				${
