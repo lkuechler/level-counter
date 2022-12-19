@@ -2,6 +2,7 @@
 	"background_color": "yellow",
 	"description": "Level counter",
 	"display": "fullscreen",
+	"orientation": "landscape",
 	"icons": [
 		{
 			"src": "icon/duck_icon.png",
