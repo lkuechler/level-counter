@@ -90,13 +90,16 @@ export class LvlCounter extends HTMLElement {
 					height: 25vh;
 					position: relative;
 					border: 0;
+					margin: 0;
 				}
 				.increase {
 					background: #BEEF9E;
 				}
 				.increase svg, .decrease svg {
+					display: block;
 					width: 90%;
 					height: 90%;
+					margin: 0 auto;
 					fill: whitesmoke;
 				}
 				.decrease {
@@ -106,11 +109,12 @@ export class LvlCounter extends HTMLElement {
 					position: absolute;
 					left: 0;
 					top: 0;
+					opacity: 0;
 				}
 				.remove {
 					border: none;
 					height: 2.5rem;
-					margin-bottom: 10px;
+					margin: 0 0 10px 0;
 				}
 				.triangle {
 					position: absolute;
