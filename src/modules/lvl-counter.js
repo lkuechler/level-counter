@@ -63,7 +63,7 @@ export class LvlCounter extends HTMLElement {
 					position: relative;
 				}
 				.level-group:first-child {
-					border-right: 1px solid black;
+					border-right: 1px solid whitesmoke;
 				}
 				.level-input {
 					appearance: textfield;
