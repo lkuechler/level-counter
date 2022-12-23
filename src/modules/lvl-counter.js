@@ -23,11 +23,26 @@ export class LvlCounter extends HTMLElement {
 
 	connectedCallback() {
 		this.render();
+		this.updateFontsizeOfLevelInputs();
 	}
 
 	attributeChangedCallback(name, oldValue, newValue) {
 		this[name] = newValue;
 		this.render();
+	}
+
+	updateFontsizeOfLevelInput(levelInput) {
+		const height = levelInput.getBoundingClientRect().height;
+		const width = levelInput.getBoundingClientRect().width;
+		levelInput.style.fontSize =
+			width > height ? `${height * 0.8}px` : `${width * 0.4}px`;
+	}
+
+	updateFontsizeOfLevelInputs() {
+		const levelInputs = this.shadowRoot.querySelectorAll(".level-input");
+		levelInputs?.forEach((levelInput) =>
+			this.updateFontsizeOfLevelInput(levelInput)
+		);
 	}
 
 	render() {
@@ -57,14 +72,14 @@ export class LvlCounter extends HTMLElement {
 					top: 50%;
 					left: 50%;
 					transform: translateY(-50%) translateX(-50%);
-					width: 3rem;
-					height: 3rem;
 					margin: 0;
 					border: 0;
-					border-radius: 50%;
 					text-align: center;
-					background: rgba(0,0,0,0.5);
-					color: white;
+					background: whitesmoke;
+					width: 50%;
+					height: 20%;
+					border-radius: 20px;
+					font-size: 2.5em;
 					z-index: 1;
 				}
 				.level-input::-webkit-inner-spin-button {
@@ -78,6 +93,11 @@ export class LvlCounter extends HTMLElement {
 				}
 				.increase {
 					background: #BEEF9E;
+				}
+				.increase svg, .decrease svg {
+					width: 90%;
+					height: 90%;
+					fill: whitesmoke;
 				}
 				.decrease {
 					background: #DB5A42;
@@ -107,33 +127,25 @@ export class LvlCounter extends HTMLElement {
 					<div class="level-group">
 						<h3>Level</h3>
 						<button id="level-increase" class="increase">
-							<svg class="triangle" viewBox="0 0 300 150">
-								<polygon points="150 0, 300 150, 0 150"></polygon>
-							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M8.12 14.71L12 10.83l3.88 3.88c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L12.7 8.71c-.39-.39-1.02-.39-1.41 0L6.7 13.3c-.39.39-.39 1.02 0 1.41.39.38 1.03.39 1.42 0z"/></svg>
 						</button>
 						<input class="level-input" id="level-count" type="number" value=${
 							this.levelcount
 						} />
 						<button id="level-decrease" class="decrease">
-							<svg class="triangle" viewBox="0 0 300 150">
-								<polygon points="150 150, 300 0, 0 0"></polygon>
-							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
 						</button>
 					</div>
 					<div class="level-group">
 						<h3>Items</h3>
 						<button id="item-increase" class="increase">
-							<svg class="triangle" viewBox="0 0 300 150">
-								<polygon points="150 0, 300 150, 0 150"></polygon>
-							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M8.12 14.71L12 10.83l3.88 3.88c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L12.7 8.71c-.39-.39-1.02-.39-1.41 0L6.7 13.3c-.39.39-.39 1.02 0 1.41.39.38 1.03.39 1.42 0z"/></svg>
 						</button>
 						<input class="level-input" id="item-count" type="number" value=${
 							this.itemcount
 						} />
 						<button id="item-decrease" class="decrease">
-							<svg class="triangle" viewBox="0 0 300 150">
-								<polygon points="150 150, 300 0, 0 0"></polygon>
-							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
 						</button>
 					</div>
 				</div>
@@ -166,5 +178,8 @@ export class LvlCounter extends HTMLElement {
 		this.shadowRoot
 			.querySelector("#remove")
 			?.addEventListener("click", this.onRemove);
+		window.addEventListener("resize", () => {
+			this.updateFontsizeOfLevelInputs();
+		});
 	}
 }
