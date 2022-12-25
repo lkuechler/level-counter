@@ -5,9 +5,28 @@
 	"orientation": "landscape",
 	"icons": [
 		{
-			"src": "icon/duck_icon.png",
+			"src": "icon/pwa/manifest-icon-192.maskable.png",
 			"sizes": "192x192",
-			"type": "image/png"
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "icon/pwa/manifest-icon-192.maskable.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "icon/pwa/manifest-icon-512.maskable.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "icon/pwa/manifest-icon-512.maskable.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
 		}
 	],
 	"name": "Duck level counter",
