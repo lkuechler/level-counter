@@ -1,6 +1,11 @@
 import { HelloWorld } from "./modules/hello-world.js";
 import { LvlCounter } from "./modules/lvl-counter.js";
 
+// install service worker
+if ("serviceWorker" in navigator) {
+	navigator.serviceWorker.register("/serviceworker.js");
+}
+
 customElements.define("hello-world", HelloWorld);
 customElements.define("duck-lvlcounter", LvlCounter);
 
