@@ -1,6 +1,10 @@
+html {
+	background: linear-gradient(25deg, rgb(245, 210, 93), rgb(242, 191, 78));
+	background-attachment: fixed;
+}
+
 body {
 	margin: 0;
-	background: whitesmoke;
 }
 
 * {
@@ -19,8 +23,9 @@ p, h1, h2, h3, button {
 .main {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 10px;
+	gap: 2vw;
 	margin-top: 2.5rem;
+	padding: 4vh 2vw;
 }
 
 .heroWrapper, .monsterWrapper {
@@ -35,6 +40,7 @@ p, h1, h2, h3, button {
 .combatPowerSummary {
 	text-align: center;
 	background: whitesmoke;
+	box-shadow: 0px 4px 10px rgba(0,0,0,.3);
 	z-index: 2;
 }
 
@@ -43,7 +49,7 @@ p, h1, h2, h3, button {
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding: .5rem 5px;
+	padding: .5rem 2vw;
 	line-height: 1.5rem;
 }
 
@@ -59,4 +65,7 @@ p, h1, h2, h3, button {
 	border: none;
 	height: 2.5rem;
 	width: 100%;
+	margin-top: 40px;
+	box-shadow: 0px 4px 10px rgba(0,0,0,.3);
+	border-radius: 15px;
 }

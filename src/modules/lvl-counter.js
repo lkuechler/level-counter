@@ -49,9 +49,13 @@ export class LvlCounter extends HTMLElement {
 		this.shadowRoot.innerHTML = `
 			<style>
 				.wrapper {
+					overflow: hidden;
 					display: flex;
 					flex-direction: column;
 					justify-content: center;
+					box-shadow: 0px 4px 10px rgba(0,0,0,.3);
+					margin-bottom: 15px;
+					border-radius: 15px;
 				}
 				.level-groups {
 					display: flex;
@@ -78,7 +82,7 @@ export class LvlCounter extends HTMLElement {
 					background: whitesmoke;
 					width: 50%;
 					height: 20%;
-					border-radius: 20px;
+					border-radius: 15px;
 					font-size: 2.5em;
 					z-index: 1;
 				}
@@ -114,7 +118,6 @@ export class LvlCounter extends HTMLElement {
 				.remove {
 					border: none;
 					height: 2.5rem;
-					margin: 0 0 10px 0;
 				}
 				.triangle {
 					position: absolute;
