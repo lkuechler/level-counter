@@ -16,7 +16,7 @@ jobs:
                   git config --local user.name "$(git log --format='%an' HEAD^!)"
             - name: deploy to github pages
               run: |
-                  mv src docs
+                  mv src/** docs/
                   git add docs
                   git commit -m "docs: move src into docs folder for github pages"
                   git push --force origin main:gh-pages
