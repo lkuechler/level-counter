@@ -2,7 +2,7 @@
 	"background_color": "yellow",
 	"description": "Level counter",
 	"display": "fullscreen",
-	"orientation": "landscape",
+	"orientation": "landscape-primary",
 	"icons": [
 		{
 			"src": "icon/pwa/manifest-icon-192.maskable.png",
