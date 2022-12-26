@@ -28,6 +28,18 @@ export class LvlCounter extends HTMLElement {
 
 	attributeChangedCallback(name, oldValue, newValue) {
 		this[name] = newValue;
+		const levelCount = this.shadowRoot.getElementById("level-count");
+		const itemCount = this.shadowRoot.getElementById("item-count");
+
+		if (name === "levelcount" && levelCount) {
+			levelCount.value = newValue;
+			return;
+		}
+		if (name === "itemcount" && itemCount) {
+			itemCount.value = newValue;
+			return;
+		}
+
 		this.render();
 	}
 

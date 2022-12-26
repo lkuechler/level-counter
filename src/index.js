@@ -26,15 +26,15 @@ const monsters = JSON.parse(window.localStorage.getItem("monsters")) || [
 addHeroButton.addEventListener("click", () => {
 	heroes.push({ levelcount: 0, itemcount: 0 });
 	update();
+	generateLvlCounters(heroes, heroWrapper);
 });
 addMonsterButton.addEventListener("click", () => {
 	monsters.push({ levelcount: 0, itemcount: 0 });
 	update();
+	generateLvlCounters(monsters, monstersWrapper);
 });
 
 const update = () => {
-	generateLvlCounters(monsters, monstersWrapper);
-	generateLvlCounters(heroes, heroWrapper);
 	updateLocalStorage();
 
 	let heroCombatPower = 0;
@@ -92,6 +92,8 @@ const generateLvlCounters = (counters, target) => {
 		lvlcounter.onRemove = () => {
 			counters.splice(index, 1);
 			update();
+			generateLvlCounters(monsters, monstersWrapper);
+			generateLvlCounters(heroes, heroWrapper);
 		};
 
 		lvlcounter.setAttribute("levelcount", counter.levelcount);
@@ -106,3 +108,5 @@ const generateLvlCounters = (counters, target) => {
 };
 
 update();
+generateLvlCounters(monsters, monstersWrapper);
+generateLvlCounters(heroes, heroWrapper);
