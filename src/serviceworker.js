@@ -1,4 +1,5 @@
 const cacheName = "duck-lvl-counter";
+const offlineUrl = "/offline.html";
 const appShellFiles = [
 	"/",
 	"/index.css",
@@ -41,6 +42,7 @@ const appShellFiles = [
 	"/icon/pwa/favicon-196.png",
 	"/icon/pwa/manifest-icon-192.maskable.png",
 	"/icon/pwa/manifest-icon-512.maskable.png",
+	offlineUrl,
 ];
 
 self.addEventListener("install", (e) => {
@@ -52,4 +54,39 @@ self.addEventListener("install", (e) => {
 			await cache.addAll(appShellFiles);
 		})()
 	);
+});
+
+// only included to avoid errors in lighthouse
+self.addEventListener("fetch", (event) => {
+	// We only want to call event.respondWith() if this is a navigation request
+	// for an HTML page.
+	if (event.request.mode === "navigate") {
+		event.respondWith(
+			(async () => {
+				try {
+					// First, try to use the navigation preload response if it's supported.
+					const preloadResponse = await event.preloadResponse;
+					if (preloadResponse) {
+						return preloadResponse;
+					}
+
+					const networkResponse = await fetch(event.request);
+					return networkResponse;
+				} catch (error) {
+					// catch is only triggered if an exception is thrown, which is likely
+					// due to a network error.
+					// If fetch() returns a valid HTTP response with a response code in
+					// the 4xx or 5xx range, the catch() will NOT be called.
+					console.log(
+						"Fetch failed; returning offline page instead.",
+						error
+					);
+
+					const cache = await caches.open(CACHE_NAME);
+					const cachedResponse = await cache.match(OFFLINE_URL);
+					return cachedResponse;
+				}
+			})()
+		);
+	}
 });
