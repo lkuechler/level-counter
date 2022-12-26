@@ -80,8 +80,8 @@ self.addEventListener("fetch", (event) => {
 						error
 					);
 
-					const cache = await caches.open(CACHE_NAME);
-					const cachedResponse = await cache.match(OFFLINE_URL);
+					const cache = await caches.open(cacheName);
+					const cachedResponse = await cache.match(offlineUrl);
 					return cachedResponse;
 				}
 			})()
