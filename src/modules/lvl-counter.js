@@ -115,10 +115,6 @@ export class LvlCounter extends HTMLElement {
 					top: 0;
 					opacity: 0;
 				}
-				.remove {
-					border: none;
-					height: 2.5rem;
-				}
 				.triangle {
 					position: absolute;
 					top: 50%;
@@ -158,7 +154,7 @@ export class LvlCounter extends HTMLElement {
 				</div>
 				${
 					this.showremovebutton
-						? '<button id="remove" class="remove">Remove</button>'
+						? '<duck-button id="remove" class="remove">Remove</duck-button>'
 						: ""
 				}
 			</div>

@@ -1,4 +1,4 @@
-import { HelloWorld } from "./modules/hello-world.js";
+import { Button } from "./modules/button.js";
 import { LvlCounter } from "./modules/lvl-counter.js";
 
 // install service worker
@@ -6,7 +6,7 @@ if ("serviceWorker" in navigator) {
 	navigator.serviceWorker.register("/serviceworker.js");
 }
 
-customElements.define("hello-world", HelloWorld);
+customElements.define("duck-button", Button);
 customElements.define("duck-lvlcounter", LvlCounter);
 
 const heroWrapper = document.querySelector(".heroWrapper");
