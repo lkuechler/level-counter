@@ -1,5 +1,6 @@
 {
 	"background_color": "yellow",
+	"theme_color": "#f5d25d",
 	"description": "Level counter",
 	"display": "fullscreen",
 	"orientation": "any",
