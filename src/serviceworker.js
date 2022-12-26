@@ -7,7 +7,7 @@ const appShellFiles = [
 	"/icon/favicon.png",
 	"/icon/lvl_icon.png",
 	"/icon/original.png",
-	"/icon/pwa/apple-icon.png",
+	"/icon/pwa/apple-icon-180.png",
 	"/icon/pwa/apple-splash-640-1136.jpg",
 	"/icon/pwa/apple-splash-750-1334.jpg",
 	"/icon/pwa/apple-splash-828-1792.jpg",
