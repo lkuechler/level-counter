@@ -1,5 +1,4 @@
 const cacheName = "duck-lvl-counter";
-const offlineUrl = "/offline.html";
 const appShellFiles = [
 	"/",
 	"/index.css",
@@ -40,7 +39,6 @@ const appShellFiles = [
 	"/icon/pwa/favicon-196.png",
 	"/icon/pwa/manifest-icon-192.maskable.png",
 	"/icon/pwa/manifest-icon-512.maskable.png",
-	offlineUrl,
 ];
 
 self.addEventListener("install", (e) => {
@@ -54,7 +52,6 @@ self.addEventListener("install", (e) => {
 	);
 });
 
-// only included to avoid errors in lighthouse
 self.addEventListener("fetch", (event) => {
 	// We only want to call event.respondWith() if this is a navigation request
 	// for an HTML page.
@@ -76,12 +73,12 @@ self.addEventListener("fetch", (event) => {
 					// If fetch() returns a valid HTTP response with a response code in
 					// the 4xx or 5xx range, the catch() will NOT be called.
 					console.log(
-						"Fetch failed; returning offline page instead.",
+						"Fetch failed; returning cached entry page instead.",
 						error
 					);
 
 					const cache = await caches.open(cacheName);
-					const cachedResponse = await cache.match(offlineUrl);
+					const cachedResponse = await cache.match("/");
 					return cachedResponse;
 				}
 			})()
