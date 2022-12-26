@@ -95,6 +95,7 @@ export class LvlCounter extends HTMLElement {
 					position: relative;
 					border: 0;
 					margin: 0;
+					touch-action: manipulation;
 				}
 				.increase {
 					background: #BEEF9E;
