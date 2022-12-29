@@ -1,5 +1,5 @@
 {
-	"background_color": "yellow",
+	"background_color": "#f5d25d",
 	"theme_color": "#f5d25d",
 	"description": "Level counter",
 	"display": "fullscreen",
