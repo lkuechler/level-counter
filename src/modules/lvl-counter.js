@@ -71,6 +71,7 @@ export class LvlCounter extends HTMLElement {
 				}
 				.level-groups {
 					display: flex;
+					min-height: 150px;
 				}
 				.level-group {
 					display: flex;
@@ -103,8 +104,8 @@ export class LvlCounter extends HTMLElement {
 					margin: 0;
 				}
 				.increase, .decrease {
-					height: 25vh;
 					position: relative;
+					height: 100%;
 					border: 0;
 					margin: 0;
 					touch-action: manipulation;
@@ -114,7 +115,7 @@ export class LvlCounter extends HTMLElement {
 				}
 				.increase svg, .decrease svg {
 					display: block;
-					width: 90%;
+					width: auto;
 					height: 90%;
 					margin: 0 auto;
 					fill: whitesmoke;
