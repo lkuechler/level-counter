@@ -1,0 +1,108 @@
+:root {
+	--highlight-color: #dfdfdf;
+	--background-color: black;
+	--dot-color: #404040;
+	--dot-size: 1px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	:root {
+		--dot-size: 0.5px;
+	}
+}
+
+html {
+	background-attachment: fixed;
+	background-color: var(--background-color);
+	background-image: radial-gradient(
+		var(--dot-color) var(--dot-size),
+		var(--background-color) var(--dot-size)
+	);
+	background-size: 20px 20px;
+}
+
+body {
+	margin: 0;
+	color: var(--highlight-color);
+}
+
+* {
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a,
+input,
+button {
+	touch-action: manipulation;
+}
+
+p,
+h1,
+h2,
+h3,
+button {
+	margin: 0;
+}
+
+.main {
+	margin-top: 2.5rem;
+	padding: 4vh 2vw;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	gap: 2vw;
+	align-items: flex-start;
+}
+
+.heroWrapper,
+.monsterWrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.monsters h2 {
+	text-align: right;
+}
+
+.combatPowerSummary {
+	text-align: center;
+	z-index: 2;
+	background: black;
+	border-bottom: 1px solid var(--highlight-color);
+}
+
+.combatPowerSummary,
+.monsters h2,
+.heroes h2 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 0.5rem 2vw 0.5rem 2vw;
+	line-height: 1.5rem;
+}
+
+.monsters,
+.heroes {
+	position: relative;
+	flex-grow: 1;
+	padding-bottom: 45px;
+}
+
+.monsters h2,
+.heroes h2 {
+	z-index: 3;
+}
+
+.addHero,
+.addMonster {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 15px;
+	border: 1px solid var(--highlight-color);
+}
