@@ -53,7 +53,7 @@ export class LvlCounter extends HTMLElement {
 	updateFontsizeOfLevelInputs() {
 		const levelInputs = this.shadowRoot.querySelectorAll(".level-input");
 		levelInputs?.forEach((levelInput) =>
-			this.updateFontsizeOfLevelInput(levelInput)
+			this.updateFontsizeOfLevelInput(levelInput),
 		);
 	}
 
@@ -65,9 +65,9 @@ export class LvlCounter extends HTMLElement {
 					display: flex;
 					flex-direction: column;
 					justify-content: center;
-					box-shadow: 0px 4px 10px rgba(0,0,0,.3);
 					margin-bottom: 15px;
 					border-radius: 15px;
+					border: 1px solid var(--highlight-color);
 				}
 				.level-groups {
 					display: flex;
@@ -79,8 +79,10 @@ export class LvlCounter extends HTMLElement {
 					flex-grow: 1;
 					position: relative;
 				}
-				.level-group:first-child {
-					border-right: 1px solid whitesmoke;
+				.level-group-separator {
+					width: 1px;
+					background: var(--highlight-color);
+					margin: 0;
 				}
 				.level-input {
 					appearance: textfield;
@@ -92,11 +94,12 @@ export class LvlCounter extends HTMLElement {
 					margin: 0;
 					border: 0;
 					text-align: center;
-					background: whitesmoke;
 					width: 50%;
 					height: 20%;
 					border-radius: 15px;
 					font-size: 2.5em;
+					background: black;
+					color: var(--highlight-color);
 					z-index: 1;
 				}
 				.level-input::-webkit-inner-spin-button {
@@ -109,19 +112,24 @@ export class LvlCounter extends HTMLElement {
 					border: 0;
 					margin: 0;
 					touch-action: manipulation;
-				}
-				.increase {
-					background: #BEEF9E;
+					background: transparent;
+					border-bottom: 1px solid var(--highlight-color);
+					cursor: pointer;
 				}
 				.increase svg, .decrease svg {
 					display: block;
 					width: auto;
 					height: 90%;
 					margin: 0 auto;
-					fill: whitesmoke;
+				}
+				.increase svg {
+					fill: #BEEF9E;
+				}
+				.decrease svg {
+					fill: #DB5A42;
 				}
 				.decrease {
-					background: #DB5A42;
+					border: 1px solid ;
 				}
 				.increase:active:after, .decrease:active:after {
 					content: "";
@@ -130,7 +138,10 @@ export class LvlCounter extends HTMLElement {
 					left: 0;
 					width: 100%;
 					height: 100%;
-					background: rgba(0,0,0,.05);
+				}
+				.remove {
+					border: none;
+					border-top: 1px solid var(--highlight-color);
 				}
 				h3 {
 					position: absolute;
@@ -162,6 +173,7 @@ export class LvlCounter extends HTMLElement {
 							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
 						</button>
 					</div>
+					<hr class="level-group-separator" />
 					<div class="level-group">
 						<h3>Items</h3>
 						<button id="item-increase" class="increase">

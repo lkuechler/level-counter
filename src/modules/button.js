@@ -20,6 +20,9 @@ export class Button extends HTMLElement {
 					border: none;
 					height: 2.5rem;
 					width: 100%;
+					background: transparent;
+					color: var(--highlight-color);
+					cursor: pointer;
 				}
 			</style>
 			<button><slot></slot></button>

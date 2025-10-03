@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -177,11 +177,6 @@
 	</head>
 	<body>
 		<div class="main">
-			<div class="heroes">
-				<h2>Heroes</h2>
-				<div class="heroWrapper"></div>
-				<duck-button class="addHero">Add</duck-button>
-			</div>
 			<div class="combatPowerSummary">
 				<p>
 					<b class="heroCombatPower"></b>
@@ -189,10 +184,21 @@
 					<b class="monsterCombatPower"></b>
 				</p>
 			</div>
-			<div class="monsters">
-				<h2>Monsters</h2>
-				<div class="monsterWrapper"></div>
-				<duck-button class="addMonster">Add</duck-button>
+			<div class="container">
+				<div class="heroes">
+					<h2>Heroes</h2>
+					<div class="heroWrapper"></div>
+					<duck-button class="addHero" standalone="true"
+						>Add +</duck-button
+					>
+				</div>
+				<div class="monsters">
+					<h2>Monsters</h2>
+					<div class="monsterWrapper"></div>
+					<duck-button class="addMonster" standalone="true"
+						>Add +</duck-button
+					>
+				</div>
 			</div>
 		</div>
 	</body>
