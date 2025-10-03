@@ -46,7 +46,7 @@ button {
 }
 
 .main {
-	margin-top: calc(2.5rem + env(safe-area-inset-top));
+	margin-top: 2.5rem;
 	padding: 4vh 2vw;
 }
 
@@ -70,6 +70,7 @@ button {
 .combatPowerSummary {
 	text-align: center;
 	z-index: 2;
+	background: black;
 	border-bottom: 1px solid var(--highlight-color);
 }
 
@@ -80,7 +81,7 @@ button {
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding: calc(0.5rem + env(safe-area-inset-top)) 2vw 0.5rem 2vw;
+	padding: 0.5rem 2vw 0.5rem 2vw;
 	line-height: 1.5rem;
 }
 
